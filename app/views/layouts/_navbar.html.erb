@@ -14,11 +14,17 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "Tweets", tweets_path %></li>
+        <li><%= link_to "Tweets", tweets_path %></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-
+        <% if current_user %>
+          <% if current_user.avatar.url %>
+            <li><%= image_tag current_user.avatar.url, {style: 'height: 50px;', class: 'img-responsive'} %></li>
+          <% end %>
+          <li><%= link_to "Update Profile", edit_user_registration_path %></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
