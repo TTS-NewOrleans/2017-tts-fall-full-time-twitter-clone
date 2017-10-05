@@ -1,16 +1,27 @@
-<h1><%= current_user.username %>'s Tweettastic Feed</h1>
-<p>Here is what you "friends" are saying:</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3
+                col-sm-8 col-sm-offset-2
+                col-xs-10 col-xs-offset-1">
+      <h1><%= current_user.username %>'s Tweettastic Feed</h1>
+      <p>Here is what you "friends" are saying:</p>
 
-<div>
-  <% @following_tweets.each do |tweet| %>
-    <div>
-      <p>
-        <%= tweet.user.username %>
-      </p>
+      <div>
+        <% @following_tweets.each do |tweet| %>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>
+                <%= tweet.user.username %>
+              </p>
 
-      <p>
-        <%= tweet.message.html_safe %>
-      </p>
+              <p>
+                <%= tweet.message.html_safe %>
+              </p>
+            </div>
+
+          </div>
+        <% end %>
+      </div>
     </div>
-  <% end %>
+  </div>
 </div>
