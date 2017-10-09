@@ -1,4 +1,5 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
+  console.log("The document is ready!");
   $('#unfollow_btn').hover(function() {
     $(this).removeClass('btn-primary');
     $(this).addClass('btn-danger');
